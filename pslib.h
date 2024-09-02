@@ -6,7 +6,7 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 19:32:42 by htrindad          #+#    #+#             */
-/*   Updated: 2024/09/02 19:48:29 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/09/02 19:52:43 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <stdbool.h>
+# include <string.h>
 
 typedef struct s_stack
 {

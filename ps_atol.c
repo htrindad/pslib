@@ -6,7 +6,7 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 17:09:28 by htrindad          #+#    #+#             */
-/*   Updated: 2024/09/02 19:50:36 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/09/02 19:53:14 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ long	ps_atol(char *num)
 {
 	long			neg;
 	long			n;
-	unsigned long	i;
+	size_t			i;
 
 	neg = 1;
 	i = 0;
