@@ -6,7 +6,7 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 19:32:42 by htrindad          #+#    #+#             */
-/*   Updated: 2024/09/02 19:43:41 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/09/02 19:48:29 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PSLIB_H
 
 # include <stdlib.h>
+# include <stdbool.h>
 
 typedef struct s_stack
 {
