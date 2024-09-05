@@ -6,13 +6,13 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 19:39:53 by htrindad          #+#    #+#             */
-/*   Updated: 2024/09/02 19:34:20 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/09/05 19:49:41 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pslib.h"
 
-static int	ft_tcount(char const *s, char c)
+static int	ps_tcount(char const *s, char c)
 {
 	int	token;
 
@@ -31,7 +31,7 @@ static int	ft_tcount(char const *s, char c)
 	return (token);
 }
 
-static int	ft_ca(char **ptr, int j)
+static int	ps_ca(char **ptr, int j)
 {
 	if (ptr[j] == NULL)
 	{
@@ -46,7 +46,7 @@ static int	ft_ca(char **ptr, int j)
 	return (1);
 }
 
-static int	ft_la(char const *s, char c, char **ptr, int i)
+static int	ps_la(char const *s, char c, char **ptr, int i)
 {
 	int	sta;
 	int	j;
@@ -61,8 +61,8 @@ static int	ft_la(char const *s, char c, char **ptr, int i)
 			sta = i;
 			while (s[i] && s[i] != c)
 				i++;
-			ptr[j] = ft_substr(s, sta, i - sta);
-			if (!ft_ca(ptr, j))
+			ptr[j] = ps_substr(s, sta, i - sta);
+			if (!ps_ca(ptr, j))
 				return (0);
 			j++;
 		}
@@ -77,11 +77,11 @@ char	**ps_split(char const *s, char c)
 
 	if (s == NULL)
 		return (NULL);
-	token = ft_tcount(s, c);
+	token = ps_tcount(s, c);
 	ptr = malloc((token + 1) * sizeof(char *));
 	if (ptr == NULL)
 		return (NULL);
-	if (!ft_la(s, c, ptr, 0))
+	if (!ps_la(s, c, ptr, 0))
 		return (NULL);
 	ptr[token] = NULL;
 	return (ptr);
