@@ -6,7 +6,7 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 19:32:42 by htrindad          #+#    #+#             */
-/*   Updated: 2024/09/05 19:00:15 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/09/09 19:37:06 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,8 @@ t_track	*ps_stacknew(long val);
 size_t	ps_strlen(char const *s);
 char	*ps_substr(char const *s);
 char	*ps_substr(char const *s, unsigned int start, unsigned int end);
+char	*ps_strdup(char const *s);
+size_t	ps_strlen(char const *s);
+char	*ps_substr(char const *s, unsigned int start, unsigned int len);
 
 #endif
