@@ -6,7 +6,7 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 19:32:42 by htrindad          #+#    #+#             */
-/*   Updated: 2024/09/17 11:38:20 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/09/17 11:48:34 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include <string.h>
+# include <unistd.h>
 
 typedef struct s_stack
 {
@@ -33,5 +34,7 @@ char	*ps_substr(char const *s, unsigned int start, unsigned int end);
 char	*ps_strdup(char const *s);
 size_t	ps_strlen(char const *s);
 char	*ps_substr(char const *s, unsigned int start, unsigned int len);
+void	ps_error(void);
+void	ps_stackfree(t_stack **stack);
 
 #endif
