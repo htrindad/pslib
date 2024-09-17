@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_stacknew.c                                      :+:      :+:    :+:   */
+/*   ps_stacklen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 19:41:16 by htrindad          #+#    #+#             */
-/*   Updated: 2024/09/17 11:10:26 by htrindad         ###   ########.fr       */
+/*   Created: 2024/09/10 16:35:47 by htrindad          #+#    #+#             */
+/*   Updated: 2024/09/10 16:53:55 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pslib.h"
 
-void	*ps_stacknew(t_stack **stack, int val)
+static void	stackfirst(t_stack *stack)
 {
-	t_stack	*new;
+	while (stack->prev)
+		stack = stack->prev;
+}
 
-	new = malloc(sizeof(t_stack));
-	new->val = val;
-	if (stack == NULL)
-		stack = new;
-	else
-		*stack->next = new;
-	return (new);
+int	ps_stacklen(t_stack *stack)
+{
+	int	i;
+
+	stackfirst(stack);
+	i = 0;
+	while (stack->next)
+	{
+		i++;
+		stack = stack->next;
+	}
+	stackfirst(stack);
+	return (i);
 }
