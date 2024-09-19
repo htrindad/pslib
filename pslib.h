@@ -5,36 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 19:32:42 by htrindad          #+#    #+#             */
-/*   Updated: 2024/09/17 11:48:34 by htrindad         ###   ########.fr       */
+/*   Created: 2024/09/17 12:36:10 by htrindad          #+#    #+#             */
+/*   Updated: 2024/09/19 16:58:04 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PSLIB_H
 # define PSLIB_H
 
-# include <stdlib.h>
+# include <limits.h>
 # include <stdbool.h>
+# include <stdlib.h>
 # include <string.h>
-# include <unistd.h>
 
 typedef struct s_stack
 {
 	int				val;
-	int				pos;
 	struct s_stack	*prev;
 	struct s_stack	*next;
 }	t_stack;
 
-char	**ps_split(char *str, char sep);
-long	ps_atol(char *num);
 size_t	ps_strlen(char const *s);
-char	*ps_substr(char const *s);
-char	*ps_substr(char const *s, unsigned int start, unsigned int end);
+long	ps_atol(char *nbr);
 char	*ps_strdup(char const *s);
-size_t	ps_strlen(char const *s);
-char	*ps_substr(char const *s, unsigned int start, unsigned int len);
-void	ps_error(void);
-void	ps_stackfree(t_stack **stack);
+char	*ps_substr(char const *s, unsigned int start, size_t len);
+char	**ps_split(char const *s, char c);
+t_stack	*ps_stackcreate(int val);
+t_stack	*ps_stacklast(t_stack *stack);
+void	ps_stackaddback(t_stack **stack, t_stack *new);
+int		ps_strncmp(const char *s1, const char *s2, size_t n);
+void	ps_quiterror(void);
 
 #endif

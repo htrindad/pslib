@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_stackfree.c                                     :+:      :+:    :+:   */
+/*   ps_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 11:47:51 by htrindad          #+#    #+#             */
-/*   Updated: 2024/09/17 11:48:23 by htrindad         ###   ########.fr       */
+/*   Created: 2024/09/17 14:39:38 by htrindad          #+#    #+#             */
+/*   Updated: 2024/09/17 14:40:12 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pslib.h"
 
-void	ps_stackfree(t_stack **stack)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	t_stack	*tmp;
-	t_stack	*current;
+	size_t	i;
 
-	if (stack == NULL)
-		return ;
-	current = *stack;
-	while (current)
-	{
-		tmp = *stack->next;
-		free(current);
-		current = tmp;
-	}
+	i = 0;
+	if (!n)
+		return (0);
+	while (i < n - 1 && s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

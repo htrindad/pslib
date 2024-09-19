@@ -1,17 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_error.c                                         :+:      :+:    :+:   */
+/*   ps_stackcreate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 11:45:40 by htrindad          #+#    #+#             */
-/*   Updated: 2024/09/17 11:46:09 by htrindad         ###   ########.fr       */
+/*   Created: 2024/09/17 14:14:15 by htrindad          #+#    #+#             */
+/*   Updated: 2024/09/17 14:45:44 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	print_error(void)
+#include "pslib.h"
+
+t_stack	*ps_stackcreate(int val)
 {
-	write(1, "Error\n" 6);
-	exit(0);
+	t_stack	*stack;
+
+	stack = malloc(sizeof(t_stack));
+	if (stack == NULL)
+		return (NULL);
+	stack->prev = NULL;
+	stack->next = NULL;
+	stack->val = val;
+	return (stack);
 }
