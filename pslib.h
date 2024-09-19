@@ -6,7 +6,7 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 12:36:10 by htrindad          #+#    #+#             */
-/*   Updated: 2024/09/19 16:58:04 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/09/19 17:14:05 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ t_stack	*ps_stacklast(t_stack *stack);
 void	ps_stackaddback(t_stack **stack, t_stack *new);
 int		ps_strncmp(const char *s1, const char *s2, size_t n);
 void	ps_quiterror(void);
+void	ps_freestack(t_stack **node);
 
 #endif
