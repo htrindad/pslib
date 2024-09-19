@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_quiterror.c                                     :+:      :+:    :+:   */
+/*   ps_countnode.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/19 16:33:18 by htrindad          #+#    #+#             */
-/*   Updated: 2024/09/19 18:42:21 by htrindad         ###   ########.fr       */
+/*   Created: 2024/09/19 18:03:45 by htrindad          #+#    #+#             */
+/*   Updated: 2024/09/19 18:09:15 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pslib.h"
 
-void	ps_quiterror(void)
+int	ps_countnode(t_stack *stack)
 {
-	write(1, "Error\n", 6);
-	exit(0);
+	int	i;
+
+	i = 0;
+	while (stack)
+	{
+		i++;
+		stack = stack->next;
+	}
+	return (i);
 }
