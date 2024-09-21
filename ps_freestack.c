@@ -6,7 +6,7 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 17:11:27 by htrindad          #+#    #+#             */
-/*   Updated: 2024/09/19 17:13:47 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/09/21 16:23:02 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	ps_freestack(t_stack **node)
 	current = *node;
 	while (current)
 	{
-		tmp = current->next;
-		free(current);
-		current = tmp;
+		tmp = current;
+		current = current->next;
+		free(tmp);
 	}
 	*node = NULL;
 }
