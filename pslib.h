@@ -6,7 +6,7 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 12:36:10 by htrindad          #+#    #+#             */
-/*   Updated: 2024/09/19 19:25:51 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/09/24 16:48:48 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,7 @@ void	ps_freematrix(char **av);
 char	*ps_substr(char const *s, unsigned int start, size_t len);
 void	*ps_memcpy(void *dst, const void *src, size_t n);
 char	*ps_strjoin(char *s1, char const *s2);
+int		ps_getlowest(t_stack *node);
+bool	ps_sorted(t_stack *node);
 
 #endif
