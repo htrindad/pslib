@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_set_median.c                                    :+:      :+:    :+:   */
+/*   ps_duplicate.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 16:31:38 by htrindad          #+#    #+#             */
-/*   Updated: 2024/10/18 17:32:36 by htrindad         ###   ########.fr       */
+/*   Created: 2024/10/18 17:53:14 by htrindad          #+#    #+#             */
+/*   Updated: 2024/10/26 16:24:52 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pslib.h"
 
-void	ps_set_median(t_stack *a)
+bool	ps_duplicate(t_stack *node)
 {
-	const int	max = ps_countnode(a);
+	t_stack	*first;
+	t_stack	*tmp;
 
-	while (a)
+	first = node;
+	while (node)
 	{
-		if (a->index > max / 2)
-			a->am = true;
-		else
-			a->am = false;
-		a = a->next;
+		tmp = first;
+		while (tmp)
+		{
+			if (tmp->index == node->index && tmp->next)
+				tmp = tmp->next;
+			if (!tmp->next)
+				break;
+			if (tmp && tmp->val == node->val)
+				return (true);
+			tmp = tmp->next;
+		}
+		node = node->next;
 	}
+	return (false);
 }
