@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_set_median.c                                    :+:      :+:    :+:   */
+/*   ps_setcheapest.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 16:31:38 by htrindad          #+#    #+#             */
-/*   Updated: 2024/10/18 17:32:36 by htrindad         ###   ########.fr       */
+/*   Created: 2024/10/27 17:32:31 by htrindad          #+#    #+#             */
+/*   Updated: 2024/10/27 18:18:44 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pslib.h"
 
-void	ps_set_median(t_stack *a)
+void	ps_setcheapest(t_stack *node)
 {
-	const int	max = ps_countnode(a);
+	long	bmi;
+	t_stack	*bmn;
 
-	while (a)
+	if (node == NULL)
+		return ;
+	bmi = LONG_MAX;
+	while (node)
 	{
-		if (a->index > max / 2)
-			a->am = true;
-		else
-			a->am = false;
-		a = a->next;
+		if (node->push_cost < bmi)
+		{
+			bmi = node->push_cost;
+			bmn = node;
+		}
+		node = node->next;
 	}
+	bmn->cheapest = true;
 }

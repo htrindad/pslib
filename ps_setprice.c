@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_reset.c                                         :+:      :+:    :+:   */
+/*   ps_setprice.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 16:53:07 by htrindad          #+#    #+#             */
-/*   Updated: 2024/10/18 16:38:31 by htrindad         ###   ########.fr       */
+/*   Created: 2024/10/27 16:58:54 by htrindad          #+#    #+#             */
+/*   Updated: 2024/10/27 17:04:36 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pslib.h"
 
-void	ps_reset(t_stack *stack)
+void	ps_setprice(t_stack *a, t_stack *b)
 {
-	ps_setindex(stack);
-	ps_set_median(stack);
+	int	la;
+	int	lb;
+
+	la = ps_countnode(a);
+	lb = ps_countnode(b);
+	while (b)
+	{
+		b->push_cost = b->index;
+		if (!b->am)
+			b->push_cost = lb - b->index;
+		if (b->am)
+			b->push_cost += b->target->index;
+		else
+			b->push_cost += la - b->target->index;
+		b = b->next;
+	}
 }
